@@ -1,0 +1,1 @@
+ghcid: ghcid --command "stack repl" --test ":main"

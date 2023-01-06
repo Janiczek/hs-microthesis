@@ -1,0 +1,98 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           microthesis
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/microthesis#readme>
+homepage:       https://github.com/Janiczek/hs-microthesis#readme
+bug-reports:    https://github.com/Janiczek/hs-microthesis/issues
+author:         Martin Janiczek
+maintainer:     martin@janiczek.cz
+copyright:      2022 Martin Janiczek
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/Janiczek/hs-microthesis
+
+library
+  exposed-modules:
+      Microthesis
+      Microthesis.Gen
+      Microthesis.SystemGen
+  other-modules:
+      Microthesis.Chunk
+      Microthesis.GenPhase
+      Microthesis.Recording
+      Microthesis.Shrink
+      Microthesis.Shrink.Cmd
+      Paths_microthesis
+  hs-source-dirs:
+      src
+  default-extensions:
+      DuplicateRecordFields
+      OverloadedRecordDot
+      RecordWildCards
+      LambdaCase
+      NamedFieldPuns
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      ListZipper
+    , base >=4.7 && <5
+    , containers
+    , random
+    , splitmix
+  default-language: Haskell2010
+
+executable microthesis-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_microthesis
+  hs-source-dirs:
+      app
+  default-extensions:
+      DuplicateRecordFields
+      OverloadedRecordDot
+      RecordWildCards
+      LambdaCase
+      NamedFieldPuns
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ListZipper
+    , base >=4.7 && <5
+    , containers
+    , microthesis
+    , random
+    , splitmix
+  default-language: Haskell2010
+
+test-suite microthesis-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_microthesis
+  hs-source-dirs:
+      test
+  default-extensions:
+      DuplicateRecordFields
+      OverloadedRecordDot
+      RecordWildCards
+      LambdaCase
+      NamedFieldPuns
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ListZipper
+    , base >=4.7 && <5
+    , containers
+    , microthesis
+    , random
+    , splitmix
+  default-language: Haskell2010
